@@ -1,7 +1,4 @@
-/* What are the most-indemand skills for data engineer in south america?
-    - Identify the top 5 in_demand skills for data engineers
-      then higlight opportunities for data engineers offering insights.
-*/
+-- What are the most-indemand skills for data engineer in south america?
 
 SELECT
   skills,
@@ -27,14 +24,7 @@ WHERE job_title_short = 'Data Engineer' AND
       region = 'south america'
 GROUP BY skills
 ORDER BY demand_count DESC
-LIMIT 10
+LIMIT 5
 
-
--- INSIGHTS
-
-/*
-
-
-*/
 
 

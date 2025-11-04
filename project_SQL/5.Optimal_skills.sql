@@ -1,9 +1,5 @@
 
-/* What are the most optimal skills to learn (High demand and high paying) in south america?
-    - Identify the top 10 skills
-      then higlight opportunities for data engineers offering insights.
-*/
-
+-- What are the most optimal skills to learn (High demand and high paying) in south america?
 
 WITH skills_demand AS (
         SELECT
@@ -75,4 +71,4 @@ WHERE
   demand_count > 10
 ORDER BY
   skill_avg_salary DESC
-LIMIT 10
+LIMIT 5

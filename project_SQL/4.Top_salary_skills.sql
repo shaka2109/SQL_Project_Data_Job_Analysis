@@ -1,9 +1,5 @@
 
-/* What are the top skills based on salary in south america?
-    - Identify the top 10 skills for data engineers with highest salary (and remote)
-      then higlight opportunities for data engineers offering insights.
-*/
-
+-- What are the top skills based on salary in south america?
 
 SELECT
   skills,
@@ -32,8 +28,3 @@ WHERE job_title_short = 'Data Engineer' AND
 GROUP BY skills
 ORDER BY skill_avg_salary DESC
 LIMIT 5
-
-/*
-
-
-*/

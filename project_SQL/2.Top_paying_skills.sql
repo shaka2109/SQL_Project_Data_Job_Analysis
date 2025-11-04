@@ -1,8 +1,5 @@
-/* What skills are required for the top-paying data engineer jobs in south america?
-    - Identify the top 10 remote jobs and the companies
-    - Add specific skills for this roles. 
-      then higlight opportunities for data engineers offering insights.
-*/
+-- What skills are required for the top-paying data engineer jobs in south america?
+
 
 WITH top_demand_jobs AS (
         SELECT 
@@ -52,11 +49,4 @@ INNER JOIN skills_job_dim AS sjd
 INNER JOIN skills_dim AS sd
     ON sjd.skill_id = sd.skill_id
 
-
--- INSIGHTS
-
-/*
-
-
-*/
 
