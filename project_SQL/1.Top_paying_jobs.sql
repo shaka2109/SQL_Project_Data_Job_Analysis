@@ -1,26 +1,80 @@
 
-/* What are the top-paying data engineer jobs?
-    - Identify the top 10 remote jobs and the companies, 
-      then higlight opportunities for data engineers offering insights.
+/* What are the top-paying data engineer jobs in south america?
+    - Identify the top 10 remote and not remote. 
 */
 
-SELECT
-    job_id,
-    job_title_short,
-    job_location,
-    job_schedule_type,
-    salary_year_avg,
-    cd.name AS company_name, 
-    job_posted_date
-FROM
-    job_postings_fact AS jpf
+-- Remote job
+
+SELECT 
+    job_title,
+    search_location,
+    job_work_from_home,
+    year_salary,
+    cd.name AS company_name
+FROM 
+(   SELECT
+    *,
+    CASE
+        WHEN search_location IN ('Colombia','Brazil','Peru',
+                            'Chile','Argentina','Paraguay','Uruguay',
+                            'Bolivia','Venezuela','Ecuador') THEN 'south america'
+        ELSE 'rest of the world'
+        END AS region,
+    CASE
+        WHEN salary_hour_avg IS NOT NULL THEN salary_hour_avg*2080
+        WHEN salary_year_avg IS NOT NULL THEN salary_year_avg
+        ELSE NULL
+        END AS year_salary
+    FROM job_postings_fact ) AS sub
 LEFT JOIN company_dim AS cd
-    ON jpf.company_id = cd.company_id
-WHERE 
+    ON sub.company_id = cd.company_id
+WHERE
     job_title_short = 'Data Engineer' AND
-    salary_year_avg IS NOT NULL AND
-    job_location =  'Anywhere'
+    region = 'south america' AND
+    year_salary IS NOT NULL AND
+    job_work_from_home = TRUE
 ORDER BY
-    salary_year_avg DESC
+    year_salary DESC
 LIMIT 10
 
+
+-- No remote job
+
+SELECT 
+    job_title,
+    search_location,
+    job_work_from_home,
+    year_salary,
+    cd.name AS company_name
+FROM 
+(   SELECT
+    *,
+    CASE
+        WHEN search_location IN ('Colombia','Brazil','Peru',
+                            'Chile','Argentina','Paraguay','Uruguay',
+                            'Bolivia','Venezuela','Ecuador') THEN 'south america'
+        ELSE 'rest of the world'
+        END AS region,
+    CASE
+        WHEN salary_hour_avg IS NOT NULL THEN salary_hour_avg*2080
+        WHEN salary_year_avg IS NOT NULL THEN salary_year_avg
+        ELSE NULL
+        END AS year_salary
+    FROM job_postings_fact ) AS sub
+LEFT JOIN company_dim AS cd
+    ON sub.company_id = cd.company_id
+WHERE
+    job_title_short = 'Data Engineer' AND
+    region = 'south america' AND
+    year_salary IS NOT NULL AND
+    job_work_from_home = false
+ORDER BY
+    year_salary DESC
+LIMIT 10
+
+-- INSIGHTS
+
+/*
+
+
+*/
