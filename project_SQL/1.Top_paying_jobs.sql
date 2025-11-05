@@ -3,10 +3,10 @@
 
 SELECT 
     job_title,
-    search_location,
-    job_work_from_home,
+    search_location AS location,
+    job_work_from_home AS remote,
     year_salary,
-    cd.name AS company_name
+    cd.name AS company
 FROM 
 (   SELECT
     *,
@@ -31,4 +31,4 @@ WHERE
     job_work_from_home = TRUE
 ORDER BY
     year_salary DESC
-LIMIT 10
+LIMIT 5

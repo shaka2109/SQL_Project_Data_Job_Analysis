@@ -37,10 +37,8 @@ WITH top_demand_jobs AS (
                     )
 
 SELECT
-    tdj.job_id,
     job_title,
     year_salary,
-    company_name,
     sd.skills
 FROM
     top_demand_jobs AS tdj
@@ -48,5 +46,6 @@ INNER JOIN skills_job_dim AS sjd
     ON tdj.job_id = sjd.job_id
 INNER JOIN skills_dim AS sd
     ON sjd.skill_id = sd.skill_id
+LIMIT 5
 
 

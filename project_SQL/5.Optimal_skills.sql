@@ -60,7 +60,6 @@ WITH skills_demand AS (
                     )
 
 SELECT
-  sd.skill_id,
   sd.skills,
   demand_count,
   skill_avg_salary
