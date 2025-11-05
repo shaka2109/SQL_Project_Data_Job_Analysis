@@ -362,12 +362,16 @@ From the analysis and the specific study for data engineers in south america, se
 
 **Top paying jobs**.
  Same roles appear replicated across the countries in south america — indicating pan-regional remote hiring rather than country-specific recruitment. Supporting the idea that location within South America has little impact on pay.
+
 **Skills required for top-paying jobs**
 The mix of SQL, Python, Rust, TypeScript and Elasticsearch shows a hybrid engineer — blending data engineering, search optimization, and software development, indicating a full-stack data platform role, not purely ETL-based.
 **Most-indemand skills**
+
 The gap between Python/SQL and the rest is notable — core programming and data querying remain non-negotiable, while cloud and distributed computing like AWS and Azure are differentiating skills for higher-level. Adding Spark gives a competitive edge for data engineering.
+
 **Top skills based on salary**
 The highest-paying skills like Elasticsearch and Rust are not the most common, but rather niche, high-impact technologies used in scalable data systems and enterprise environments.
+
 **Most optimal skills**
 Oracle, Java and similar skills presents high demand and command high salaries, reflecting specialization and business-critical knowledge rather than market saturation, highlighting the enterprise segment of the data job market: lower visibility, fewer openings, but strong pay and long-term stability.
 
